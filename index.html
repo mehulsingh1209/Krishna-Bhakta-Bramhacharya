@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna Bhakta Bramhacharya - Security Consultant & Thought Leader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #002366; /* Navy blue */
+            --secondary-color: #D4AF37; /* Gold */
+            --accent-color: #800020; /* Burgundy */
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --white-color: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--white-color);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--white-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 1rem auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-primary {
+            color: var(--primary-color);
+        }
+
+        .text-secondary {
+            color: var(--secondary-color);
+        }
+
+        .bg-light {
+            background-color: var(--light-color);
+        }
+
+        .bg-primary {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .bg-primary h1, 
+        .bg-primary h2, 
+        .bg-primary h3, 
+        .bg-primary h4, 
+        .bg-primary h5, 
+        .bg-primary h6 {
+            color: var(--white-color);
+        }
+
+        .bg-primary a {
+            color: var(--secondary-color);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--white-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 35, 102, 0.8), rgba(0, 35, 102, 0.8)), 
+                        url('https://images.unsplash.com/photo-1580130732478-4e339fb33746?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: var(--white-color);
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--white-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-btns .btn {
+            min-width: 180px;
+        }
+
+        .hero-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--secondary-color);
+            margin: 0 auto 2rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Philosophy Banner */
+        .philosophy-banner {
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .philosophy-banner h2 {
+            color: var(--white-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .philosophy-banner p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Expertise Section */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .expertise-card {
+            background-color: var(--white-color);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .expertise-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: var(--white-color);
+            border: 4px solid var(--secondary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--light-color);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--light-color);
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--light-color);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--light-color) transparent transparent;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--light-color);
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        /* Experience Section */
+        .experience-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            background-color: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--gray-color);
+        }
+
+        .tab-btn.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .case-study {
+            background-color: var(--white-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .case-study:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .case-study-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .case-study:hover .case-study-img img {
+            transform: scale(1.1);
+        }
+
+        .case-study-content {
+            padding: 1.5rem;
+        }
+
+        .case-study-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-meta {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white-color);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-slide {
+            background-color: var(--white-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            margin: 0 1rem;
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .testimonial-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .testimonial-position {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+
+        .slick-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            list-style: none;
+        }
+
+        .slick-dots li {
+            margin: 0 5px;
+        }
+
+        .slick-dots button {
+            font-size: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--gray-color);
+            border: none;
+            opacity: 0.5;
+            transition: var(--transition);
+        }
+
+        .slick-dots .slick-active button {
+            background-color: var(--secondary-color);
+            opacity: 1;
+        }
+
+        /* Knowledge Center */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background-color: var(--white-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-meta i {
+            margin-right: 0.5rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-right: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 50%;
+            margin-right: 1rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 35, 102, 0.1);
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white-color);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            color: var(--white-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white-color);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                order: -1;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 18px;
+            }
+
+            .left::before, .right::before {
+                left: 60px;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent var(--light-color) transparent transparent;
+            }
+
+            .left, .right {
+                left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .hero-btns .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Krishna<span>Bhakta</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#knowledge">Knowledge</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-img">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Krishna Bhakta Bramhacharya">
+                </div>
+                <h1>30+ Years of Security Leadership Experience</h1>
+                <p>Retired Deputy Inspector General of Police (DIGP) from APF Nepal with extensive experience in national security, UN peacekeeping, and leadership roles.</p>
+                <div class="hero-btns">
+                    <a href="#experience" class="btn">View Experience</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Banner -->
+    <section class="philosophy-banner">
+        <div class="container">
+            <h2>Professional Philosophy</h2>
+            <p>"Scientific revolution, Diplomatic solutions, and Anti-corruption"</p>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Areas of Expertise</h2>
+                <p>Specialized skills and knowledge acquired over three decades of service</p>
+            </div>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Security Operations</h3>
+                    <p>Strategic planning and execution of comprehensive security operations at national and international levels.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Intelligence Analysis</h3>
+                    <p>Advanced intelligence gathering and analysis to inform security decisions and policy making.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Leadership</h3>
+                    <p>Proven leadership in high-pressure environments with diverse teams and complex challenges.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Peacekeeping</h3>
+                    <p>Extensive experience in United Nations peacekeeping missions and international diplomacy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section bg-light" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>My professional journey and personal philosophy</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Krishna Bhakta Bramhacharya</h2>
+                    <p>With over three decades of distinguished service in security and law enforcement, I have dedicated my career to protecting communities, building secure environments, and fostering international cooperation through peacekeeping missions.</p>
+                    <p>My journey began in the Nepal Army, where I developed foundational skills in security operations and leadership. After transitioning to the Armed Police Force (APF) Nepal, I rose through the ranks to become Deputy Inspector General of Police (DIGP), overseeing critical security operations and policy implementations.</p>
+                    <p>My international experience includes serving in United Nations peacekeeping missions, where I coordinated multinational teams in complex security environments. These experiences have given me unique insights into global security challenges and cross-cultural leadership.</p>
+                    <p>Today, I leverage this extensive experience to provide strategic security consulting, training programs, and thought leadership to organizations facing complex security challenges.</p>
+                    <a href="#experience" class="btn">View Full Experience</a>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1580130732478-4e339fb33746?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Krishna Bhakta Bramhacharya in uniform">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Career Timeline</h2>
+                <p>Key milestones in my professional journey</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1985 - 1990</div>
+                        <h3>Officer Training</h3>
+                        <p>Commissioned as an officer in the Nepal Army after completing rigorous military training and officer education programs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1991 - 1995</div>
+                        <h3>Field Operations</h3>
+                        <p>Served in various field operations, developing tactical expertise in security operations and crisis management.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1996 - 2000</div>
+                        <h3>Specialized Training</h3>
+                        <p>Completed advanced training in intelligence analysis, counter-terrorism, and strategic security planning.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2001 - 2005</div>
+                        <h3>Transition to APF Nepal</h3>
+                        <p>Joined the Armed Police Force Nepal, bringing military discipline to civilian law enforcement operations.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2006 - 2010</div>
+                        <h3>UN Peacekeeping Mission</h3>
+                        <p>Deployed as part of United Nations peacekeeping forces, coordinating multinational security operations.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2011 - 2015</div>
+                        <h3>Senior Leadership Roles</h3>
+                        <p>Promoted to Deputy Inspector General of Police (DIGP), overseeing national security operations and policy.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2016 - Present</div>
+                        <h3>Security Consulting</h3>
+                        <p>Transitioned to security consulting, providing expertise to organizations and governments on security strategy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section bg-light" id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience & Expertise</h2>
+                <p>Detailed professional background and specialized knowledge</p>
+            </div>
+            <div class="experience-tabs">
+                <button class="tab-btn active" data-tab="professional">Professional Experience</button>
+                <button class="tab-btn" data-tab="un">UN Experience</button>
+                <button class="tab-btn" data-tab="leadership">Leadership</button>
+                <button class="tab-btn" data-tab="cases">Case Studies</button>
+            </div>
+            <div class="tab-content active" id="professional">
+                <h3>Professional Experience Overview</h3>
+                <p>My career spans over three decades in security and law enforcement, with progressive responsibilities from field operations to executive leadership:</p>
+                <ul>
+                    <li><strong>Deputy Inspector General of Police (DIGP)</strong> - Armed Police Force Nepal (2011-2015)</li>
+                    <li><strong>Senior Superintendent of Police</strong> - APF Nepal (2006-2010)</li>
+                    <li><strong>United Nations Peacekeeping Officer</strong> - Various missions (2006-2009)</li>
+                    <li><strong>Officer</strong> - Nepal Army (1985-2000)</li>
+                </ul>
+                <p>Key responsibilities included strategic security planning, crisis management, intelligence coordination, and multinational team leadership.</p>
+            </div>
+            <div class="tab-content" id="un">
+                <h3>United Nations Peacekeeping Experience</h3>
+                <p>My international service with the United Nations provided invaluable experience in multinational security operations:</p>
+                <ul>
+                    <li>Served as Security Coordinator for UN Mission in Sudan (UNMIS) 2008-2009</li>
+                    <li>Led multinational teams in complex security environments</li>
+                    <li>Developed cross-cultural communication and diplomacy skills</li>
+                    <li>Implemented security protocols for civilian protection in conflict zones</li>
+                    <li>Coordinated with international agencies on humanitarian security</li>
+                </ul>
+            </div>
+            <div class="tab-content" id="leadership">
+                <h3>Leadership Roles and Achievements</h3>
+                <p>Throughout my career, I have held various leadership positions with increasing responsibility:</p>
+                <ul>
+                    <li><strong>Commanding Officer</strong> - Oversaw 1500+ personnel in critical security operations</li>
+                    <li><strong>Strategic Planner</strong> - Developed national security policies and protocols</li>
+                    <li><strong>Crisis Manager</strong> - Led responses to major security incidents and natural disasters</li>
+                    <li><strong>Mentor</strong> - Trained and developed next generation of security professionals</li>
+                </ul>
+                                    programs that reduced crime rates by 25% in targeted areas.</p>
+            </div>
+            <div class="tab-content" id="cases">
+                <h3>Notable Case Studies</h3>
+                <p>Selected examples of complex security challenges I've managed:</p>
+                <div class="case-studies">
+                    <div class="case-study">
+                        <div class="case-study-img">
+                            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Election Security">
+                        </div>
+                        <div class="case-study-content">
+                            <h3>National Election Security</h3>
+                            <div class="case-study-meta">2013 | APF Nepal</div>
+                            <p>Designed and implemented comprehensive security plan for national elections, coordinating with multiple agencies to ensure peaceful voting across 7,000 polling stations.</p>
+                        </div>
+                    </div>
+                    <div class="case-study">
+                        <div class="case-study-img">
+                            <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="UN Peacekeeping">
+                        </div>
+                        <div class="case-study-content">
+                            <h3>Humanitarian Corridor Security</h3>
+                            <div class="case-study-meta">2008 | UN Mission Sudan</div>
+                            <p>Established secure humanitarian corridors in conflict zones, enabling delivery of aid to 50,000+ displaced persons while maintaining neutrality among warring factions.</p>
+                        </div>
+                    </div>
+                    <div class="case-study">
+                        <div class="case-study-img">
+                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Disaster Response">
+                        </div>
+                        <div class="case-study-content">
+                            <h3>Earthquake Disaster Response</h3>
+                            <div class="case-study-meta">2015 | APF Nepal</div>
+                            <p>Led rapid response teams after major earthquake, coordinating search/rescue operations and establishing emergency security for relief distribution in affected areas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Endorsements</h2>
+                <p>What colleagues and partners say about my work</p>
+            </div>
+            <div class="testimonials">
+                <div class="testimonial-slide">
+                    <div class="testimonial-img">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Testimonial 1">
+                    </div>
+                    <p class="testimonial-text">"Krishna Bhakta's strategic vision and operational expertise were instrumental in transforming our security protocols. His ability to balance tactical precision with diplomatic finesse is unparalleled."</p>
+                    <p class="testimonial-author">Rajesh Thapa</p>
+                    <p class="testimonial-position">Former Inspector General, APF Nepal</p>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-img">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Testimonial 2">
+                    </div>
+                    <p class="testimonial-text">"Working with Krishna Bhakta in Sudan was a masterclass in cross-cultural leadership. He built trust among diverse stakeholders while maintaining impeccable security standards."</p>
+                    <p class="testimonial-author">Sarah Johnson</p>
+                    <p class="testimonial-position">UN Humanitarian Coordinator</p>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-img">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Testimonial 3">
+                    </div>
+                    <p class="testimonial-text">"His training programs revolutionized our approach to community policing. Krishna Bhakta understands that true security comes from both professional excellence and public trust."</p>
+                    <p class="testimonial-author">Anil Kumar</p>
+                    <p class="testimonial-position">Police Superintendent, Kathmandu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section bg-light" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Services</h2>
+                <p>How I can contribute to your organization's security needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Security Consulting</h3>
+                    <p>Comprehensive security assessments and strategic recommendations for organizations facing complex security challenges.</p>
+                    <ul>
+                        <li>Risk assessment & mitigation</li>
+                        <li>Security protocol development</li>
+                        <li>Crisis management planning</li>
+                        <li>Physical & cyber security integration</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Training Programs</h3>
+                    <p>Customized training for security professionals and organizational leadership.</p>
+                    <ul>
+                        <li>Executive protection training</li>
+                        <li>Crisis leadership development</li>
+                        <li>Community policing strategies</li>
+                        <li>International security standards</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Speaking Engagements</h3>
+                    <p>Keynote presentations and panel discussions on contemporary security challenges.</p>
+                    <ul>
+                        <li>Global security trends</li>
+                        <li>Peacekeeping experiences</li>
+                        <li>Leadership in crisis</li>
+                        <li>Security-sector reform</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3>Strategic Advisory</h3>
+                    <p>High-level guidance for governments and organizations on security policy.</p>
+                    <ul>
+                        <li>Security policy formulation</li>
+                        <li>Organizational restructuring</li>
+                        <li>International cooperation</li>
+                        <li>Anti-corruption strategies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Center -->
+    <section class="section" id="knowledge">
+        <div class="container">
+            <div class="section-title">
+                <h2>Knowledge Center</h2>
+                <p>Insights and resources on security leadership</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog 1">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <i class="far fa-calendar-alt"></i> June 15, 2023
+                        </div>
+                        <h3>The Evolving Landscape of National Security</h3>
+                        <p>Examining how emerging technologies and global trends are reshaping security priorities for nations and organizations.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog 2">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <i class="far fa-calendar-alt"></i> April 2, 2023
+                        </div>
+                        <h3>Lessons from UN Peacekeeping Missions</h3>
+                        <p>Key insights from multinational security operations and their applications to domestic security challenges.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog 3">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <i class="far fa-calendar-alt"></i> January 18, 2023
+                        </div>
+                        <h3>Building Trust Between Security Forces and Communities</h3>
+                        <p>Strategies for developing effective community policing programs that enhance both security and public confidence.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 3rem;">
+                <a href="#" class="btn">View All Articles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Foundations Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Foundations & Initiatives</h2>
+                <p>Community engagement and social responsibility</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Alan Foundation</h3>
+                    <p>Founded in 2010, the Alan Foundation focuses on education and empowerment initiatives for underprivileged youth in Nepal. Our programs provide scholarships, vocational training, and leadership development to create opportunities for the next generation.</p>
+                    
+                    <h3 style="margin-top: 2rem;">Save Newa Valley</h3>
+                    <p>As an active supporter of Save Newa Valley, I contribute to preserving cultural heritage while promoting sustainable development in the Kathmandu Valley region. Our work balances modernization with cultural preservation.</p>
+                    
+                    <h3 style="margin-top: 2rem;">Security Sector Reform</h3>
+                    <p>Through various initiatives, I advocate for transparency, accountability, and professionalization in security institutions. This includes mentoring young officers and promoting ethical standards in law enforcement.</p>
+                    
+                    <a href="#" class="btn" style="margin-top: 1.5rem;">Learn About Our Work</a>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Community Work">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Contact me for consulting inquiries or speaking engagements</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Kathmandu, Nepal</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>contact@krishnabhakta.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>+977 1 1234567</p>
+                        </div>
+                    </div>
+                    <h3 style="margin-top: 2rem;">Connect With Me</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Krishna Bhakta</h3>
+                    <p>Security consultant and thought leader with 30+ years of experience in national security, peacekeeping, and leadership roles.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Security Consulting</a></li>
+                        <li><a href="#">Training Programs</a></li>
+                        <li><a href="#">Speaking Engagements</a></li>
+                        <li><a href="#">Strategic Advisory</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Articles</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Media</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Krishna Bhakta Bramhacharya. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-links li');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Sticky Header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 100);
+            
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            backToTop.classList.toggle('active', window.scrollY > 300);
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Experience Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Testimonials Slider
+        $(document).ready(function(){
+            $('.testimonials').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows: false
+            });
+        });
+    </script>
+</body>
+</html>
