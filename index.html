@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krishna Bhakta Bramhacharya - Security Consultant & Thought Leader</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <style>
         /* Global Styles */
         :root {
@@ -213,6 +215,8 @@
             cursor: pointer;
             font-size: 1.5rem;
             color: var(--primary-color);
+            background: none;
+            border: none;
         }
 
         /* Hero Section */
@@ -337,6 +341,11 @@
             width: 100%;
             height: auto;
             display: block;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
         }
 
         .about-text h2 {
@@ -347,6 +356,7 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Timeline Section */
         .timeline {
             position: relative;
             max-width: 1200px;
@@ -441,6 +451,7 @@
             justify-content: center;
             margin-bottom: 2rem;
             flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .tab-btn {
@@ -461,6 +472,12 @@
 
         .tab-content {
             display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .tab-content.active {
@@ -595,6 +612,7 @@
             justify-content: center;
             margin-top: 2rem;
             list-style: none;
+            padding: 0;
         }
 
         .slick-dots li {
@@ -610,6 +628,7 @@
             border: none;
             opacity: 0.5;
             transition: var(--transition);
+            cursor: pointer;
         }
 
         .slick-dots .slick-active button {
@@ -678,6 +697,11 @@
             font-weight: 600;
             color: var(--primary-color);
             margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            color: var(--accent-color);
         }
 
         /* Contact Section */
@@ -747,7 +771,8 @@
         }
 
         .contact-form input,
-        .contact-form textarea {
+        .contact-form textarea,
+        .contact-form select {
             width: 100%;
             padding: 0.8rem;
             border: 1px solid #ddd;
@@ -757,7 +782,8 @@
         }
 
         .contact-form input:focus,
-        .contact-form textarea:focus {
+        .contact-form textarea:focus,
+        .contact-form select:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 2px rgba(0, 35, 102, 0.1);
@@ -841,6 +867,7 @@
             visibility: hidden;
             transition: var(--transition);
             z-index: 999;
+            border: none;
         }
 
         .back-to-top.active {
@@ -850,6 +877,17 @@
 
         .back-to-top:hover {
             background-color: var(--secondary-color);
+        }
+
+        /* Form Success Message */
+        .form-success {
+            display: none;
+            padding: 1rem;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            text-align: center;
         }
 
         /* Mobile Styles */
@@ -866,6 +904,7 @@
                 justify-content: center;
                 transition: var(--transition);
                 z-index: 999;
+                padding: 2rem 0;
             }
 
             .nav-links.active {
@@ -933,6 +972,35 @@
             .hero-btns .btn {
                 width: 100%;
             }
+
+            .experience-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                margin-bottom: 2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -950,9 +1018,9 @@
                     <li><a href="#knowledge">Knowledge</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="hamburger">
+                <button class="hamburger">
                     <i class="fas fa-bars"></i>
-                </div>
+                </button>
             </nav>
         </div>
     </header>
@@ -1150,7 +1218,7 @@
                     <li><strong>Crisis Manager</strong> - Led responses to major security incidents and natural disasters</li>
                     <li><strong>Mentor</strong> - Trained and developed next generation of security professionals</li>
                 </ul>
-                                    programs that reduced crime rates by 25% in targeted areas.</p>
+                <p>Implemented community policing programs that reduced crime rates by 25% in targeted areas.</p>
             </div>
             <div class="tab-content" id="cases">
                 <h3>Notable Case Studies</h3>
@@ -1201,7 +1269,7 @@
             <div class="testimonials">
                 <div class="testimonial-slide">
                     <div class="testimonial-img">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Testimonial 1">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Rajesh Thapa">
                     </div>
                     <p class="testimonial-text">"Krishna Bhakta's strategic vision and operational expertise were instrumental in transforming our security protocols. His ability to balance tactical precision with diplomatic finesse is unparalleled."</p>
                     <p class="testimonial-author">Rajesh Thapa</p>
@@ -1209,7 +1277,7 @@
                 </div>
                 <div class="testimonial-slide">
                     <div class="testimonial-img">
-                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Testimonial 2">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Sarah Johnson">
                     </div>
                     <p class="testimonial-text">"Working with Krishna Bhakta in Sudan was a masterclass in cross-cultural leadership. He built trust among diverse stakeholders while maintaining impeccable security standards."</p>
                     <p class="testimonial-author">Sarah Johnson</p>
@@ -1217,7 +1285,7 @@
                 </div>
                 <div class="testimonial-slide">
                     <div class="testimonial-img">
-                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Testimonial 3">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Anil Kumar">
                     </div>
                     <p class="testimonial-text">"His training programs revolutionized our approach to community policing. Krishna Bhakta understands that true security comes from both professional excellence and public trust."</p>
                     <p class="testimonial-author">Anil Kumar</p>
@@ -1301,7 +1369,7 @@
             <div class="blog-grid">
                 <div class="blog-card">
                     <div class="blog-img">
-                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog 1">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="National Security">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1314,7 +1382,7 @@
                 </div>
                 <div class="blog-card">
                     <div class="blog-img">
-                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog 2">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="UN Peacekeeping">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1327,7 +1395,7 @@
                 </div>
                 <div class="blog-card">
                     <div class="blog-img">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog 3">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Community Policing">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1418,22 +1486,25 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <div class="form-success" id="formSuccess">
+                        Thank you for your message! I will get back to you soon.
+                    </div>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" required>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" required>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" required>
+                            <input type="text" id="subject" name="subject" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" required></textarea>
+                            <textarea id="message" name="message" required></textarea>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
@@ -1486,13 +1557,13 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="backToTop">
+    <button href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
-    </a>
+    </button>
 
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
         // Mobile Navigation
         const hamburger = document.querySelector('.hamburger');
@@ -1539,6 +1610,15 @@
             });
         });
 
+        // Back to Top Button
+        document.getElementById('backToTop').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
         // Experience Tabs
         const tabBtns = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
@@ -1569,6 +1649,45 @@
                 autoplaySpeed: 5000,
                 arrows: false
             });
+        });
+
+        // Form Submission (simulated)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const formSuccess = document.getElementById('formSuccess');
+            formSuccess.style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                formSuccess.style.display = 'none';
+            }, 5000);
+        });
+
+        // Lazy loading for images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+            
+            if ('IntersectionObserver' in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove('lazy');
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
         });
     </script>
 </body>
